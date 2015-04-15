@@ -1,0 +1,29 @@
+{
+  "name": "ho",
+  "version": "0.1.0",
+  "description": "Ho ho ho the jolly css/less system",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/hocss/ho.git"
+  },
+  "keywords": [
+    "ho",
+    "css",
+    "less",
+    "styleguide",
+    "compiler",
+    "conformance",
+    "framework",
+    "system"
+  ],
+  "author": "Matt Styles",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hocss/ho/issues"
+  },
+  "homepage": "https://github.com/hocss/ho"
+}
