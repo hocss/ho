@@ -12,7 +12,9 @@ require('babel-core/register')({
     only: new RegExp( __dirname )
 })
 
+
 var Compiler = require( './compiler' )
+var Watcher = require( './watcher' )
 
 
 function makeArgs( args ) {
@@ -46,17 +48,31 @@ function makeArgs( args ) {
         })
         .help( 'h' )
         .alias( 'h', 'help' )
-        .argv
 }
 
 var argv = require( 'yargs' )
     .usage( 'Usage: $0 <command> [options]' )
     .command( 'compile', 'Compiles Less into CSS', function( yargs ) {
-        var compiler = new Compiler( makeArgs( yargs ) )
+        var compiler = new Compiler( makeArgs( yargs ).argv )
         compiler.compile()
     })
     .command( 'watch', 'Starts watching files', function( yargs ) {
-        var compiler = new Compiler( makeArgs( yargs ) )
+        var watchArgv = makeArgs( yargs )
+            .option( 'w', {
+                alias: 'watch',
+                describe: 'Glob to watch for changes',
+                demand: true,
+                type: 'string'
+            })
+            .help( 'h' )
+            .alias( 'h', 'help ')
+            .argv
+
+        var compiler = new Compiler( watchArgv )
+        var watcher = new Watcher( watchArgv )
+
+        watcher.register( compiler.compile )
+        watcher.watch()
     })
     .help( 'h' )
     .alias( 'h', 'help' )
