@@ -14,8 +14,19 @@ require('babel-core/register')({
 })
 
 var argv = require( 'yargs' )
-    .usage( 'Usage: $0 <entry_path> [options] > <output_path>' )
-    .demand( 1 )
+    .usage( 'Usage: $0 [options] < <entry_path> > <output_path>' )
+    .option( 'e', {
+        alias: 'entry',
+        describe: 'Main entry path for less compilation',
+        demand: true,
+        type: 'string'
+    })
+    .option( 'o', {
+        alias: 'output',
+        describe: 'Output path',
+        demand: true,
+        type: 'string'
+    })
     .option( 'p', {
         alias: 'paths',
         describe: 'Colon separated list of search paths for @import directives',
@@ -24,7 +35,12 @@ var argv = require( 'yargs' )
     })
     .option( 'd', {
         alias: 'debug',
-        describe: 'Start in debug mode which enables source-mapping'
+        describe: 'Start in debug mode which enables source-mapping',
+        type: 'boolean'
+    })
+    .option( 'verbose', {
+        describe: 'Sets up verbose logging',
+        type: 'boolean'
     })
     .help( 'h' )
     .alias( 'h', 'help' )
