@@ -1,0 +1,34 @@
+#!/usr/bin/env node
+
+require('babel-core/register')({
+    optional: [
+        'es7.classProperties'
+    ],
+    loose: [
+        'es6.modules',
+        'es6.classes'
+    ],
+    ignore: false,
+    only: new RegExp( __dirname )
+
+})
+
+var argv = require( 'yargs' )
+    .usage( 'Usage: $0 <entry_path> [options] > <output_path>' )
+    .demand( 1 )
+    .option( 'p', {
+        alias: 'paths',
+        describe: 'Colon separated list of search paths for @import directives',
+        demand: false,
+        type: 'string'
+    })
+    .option( 'd', {
+        alias: 'debug',
+        describe: 'Start in debug mode which enables source-mapping'
+    })
+    .help( 'h' )
+    .alias( 'h', 'help' )
+    .argv
+
+var compiler = require( './compiler' )( argv )
+compiler.compile()

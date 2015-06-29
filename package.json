@@ -2,8 +2,11 @@
   "name": "ho",
   "version": "0.1.0",
   "description": "Ho ho ho the jolly css/less system",
-  "main": "index.js",
+  "bin": {
+    "ho": "lib/ho"
+  },
   "scripts": {
+    "lint": "eslint ./src/**/*.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -25,5 +28,13 @@
   "bugs": {
     "url": "https://github.com/hocss/ho/issues"
   },
-  "homepage": "https://github.com/hocss/ho"
+  "homepage": "https://github.com/hocss/ho",
+  "dependencies": {
+    "ho-compiler": "^0.4.0",
+    "yargs": "^3.14.0"
+  },
+  "devDependencies": {
+    "babel-eslint": "^3.1.19",
+    "eslint": "^0.24.0"
+  }
 }
