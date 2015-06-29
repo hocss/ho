@@ -10,41 +10,54 @@ require('babel-core/register')({
     ],
     ignore: false,
     only: new RegExp( __dirname )
-
 })
 
+var Compiler = require( './compiler' )
+
+
+function makeArgs( args ) {
+    return args
+        .option( 'e', {
+            alias: 'entry',
+            describe: 'Main entry path for less compilation',
+            demand: true,
+            type: 'string'
+        })
+        .option( 'o', {
+            alias: 'output',
+            describe: 'Output path',
+            demand: true,
+            type: 'string'
+        })
+        .option( 'p', {
+            alias: 'paths',
+            describe: 'Colon separated list of search paths for @import directives',
+            demand: false,
+            type: 'string'
+        })
+        .option( 'd', {
+            alias: 'debug',
+            describe: 'Start in debug mode which enables source-mapping',
+            type: 'boolean'
+        })
+        .option( 'verbose', {
+            describe: 'Sets up verbose logging',
+            type: 'boolean'
+        })
+        .help( 'h' )
+        .alias( 'h', 'help' )
+        .argv
+}
+
 var argv = require( 'yargs' )
-    .usage( 'Usage: $0 [options] < <entry_path> > <output_path>' )
-    .option( 'e', {
-        alias: 'entry',
-        describe: 'Main entry path for less compilation',
-        demand: true,
-        type: 'string'
+    .usage( 'Usage: $0 <command> [options]' )
+    .command( 'compile', 'Compiles Less into CSS', function( yargs ) {
+        var compiler = new Compiler( makeArgs( yargs ) )
+        compiler.compile()
     })
-    .option( 'o', {
-        alias: 'output',
-        describe: 'Output path',
-        demand: true,
-        type: 'string'
-    })
-    .option( 'p', {
-        alias: 'paths',
-        describe: 'Colon separated list of search paths for @import directives',
-        demand: false,
-        type: 'string'
-    })
-    .option( 'd', {
-        alias: 'debug',
-        describe: 'Start in debug mode which enables source-mapping',
-        type: 'boolean'
-    })
-    .option( 'verbose', {
-        describe: 'Sets up verbose logging',
-        type: 'boolean'
+    .command( 'watch', 'Starts watching files', function( yargs ) {
+        var compiler = new Compiler( makeArgs( yargs ) )
     })
     .help( 'h' )
     .alias( 'h', 'help' )
     .argv
-
-var compiler = require( './compiler' )( argv )
-compiler.compile()
