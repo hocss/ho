@@ -46,6 +46,12 @@ function makeArgs( args ) {
             describe: 'Sets up verbose logging',
             type: 'boolean'
         })
+        .option( 'c', {
+            alias: 'config',
+            describe: 'Supply config details as json - give it a path to some json',
+            demand: false,
+            type: 'string'
+        })
         .help( 'h' )
         .alias( 'h', 'help' )
 }

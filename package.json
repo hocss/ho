@@ -7,7 +7,8 @@
   },
   "scripts": {
     "lint": "eslint ./lib/**/*.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "example": "./lib/ho compile -e example/main.less -o example/styles.css -c package.json --verbose"
   },
   "repository": {
     "type": "git",
@@ -23,6 +24,13 @@
     "framework",
     "system"
   ],
+  "ho": {
+    "autoprefixer-transform": {
+      "browsers": [
+        "last 4 versions"
+      ]
+    }
+  },
   "author": "Matt Styles",
   "license": "ISC",
   "bugs": {
@@ -38,6 +46,7 @@
     "yargs": "^3.14.0"
   },
   "devDependencies": {
+    "autoprefixer-transform": "^0.3.1",
     "babel-eslint": "^3.1.19",
     "eslint": "^0.24.0"
   }
