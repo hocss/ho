@@ -36,3 +36,14 @@ Watching is pretty handy, it’d be useful if there was a shorthand for it, oh w
 ```
 ho watch -w 'src/**/*.less' -e src/main.less -o dist/styles.css
 ```
+
+Watch will fire a compile on file change event so it accepts the same parameters as compile plus the glob to watch for. If your shell auto-expands globs (which is likely) then pass it through as a string, `ho` will expand it.
+
+
+## Help
+
+`Ho` tries to be self documenting, but if you’re really stuck then open an issue or try stack overflow
+
+```
+ho <command> --help
+```
