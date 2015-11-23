@@ -40,8 +40,8 @@ module.exports = class Compiler {
         return
       }
 
-      this.verbose( 'Found transforms' )
       this.transforms = Object.keys( this.config )
+      this.verbose( 'Using transforms', ...this.transforms.map( transform => chalk.yellow( transform ) ) )
 
       this.transforms.forEach( transform => {
         this.log( chalk.magenta( 'Applying transform' ), transform )

@@ -7,9 +7,11 @@
     "ho": "bin/ho"
   },
   "scripts": {
+    "prepublish":"npm run build",
     "lint": "eslint ./src/**/*.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "babel src --out-dir lib",
+    "preexample": "npm run build",
     "example": "./bin/ho compile -e example/main.less -o example/styles.css -c package.json --verbose"
   },
   "repository": {
