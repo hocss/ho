@@ -1,6 +1,6 @@
 {
   "name": "ho",
-  "version": "1.1.2",
+  "version": "1.2.0",
   "description": "Ho ho ho the jolly css/less system",
   "main": "lib",
   "bin": {

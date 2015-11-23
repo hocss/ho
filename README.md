@@ -9,12 +9,12 @@
 npm i ho
 ```
 
-You can install as a global if you like, either way you’ll end up with the `ho` executable which can be used to perform various stylesheet related festive shenanigans.
+You can install as a global if you like, either way you’ll end up with the `ho` executable which can be used to perform various stylesheet related festive (or not) shenanigans.
 
 
 ## Compiling
 
-Just want to compile your less, no problem, just give it an entry and output paths
+Just want to compile your less, no problem, just give it entry and output paths
 
 ```sh
 ho compile -e src/main.less -o dist/styles.css
@@ -22,7 +22,7 @@ ho compile -e src/main.less -o dist/styles.css
 
 `Ho` will output a few bits and bobs to the console while it’s working so no streaming just yet (it’s getting there).
 
-`Ho` has a load of built-in help for more options—for compiling most just specify parameters for [less](http://lesscss.org/#using-less-command-line-usage) to use
+`Ho` has a load of built-in help for more options—for compiles just specify parameters for [less](http://lesscss.org/#using-less-command-line-usage) to use
 
 ```sh
 ho compile -h
@@ -42,7 +42,7 @@ Watch will fire a compile on file change event so it accepts the same parameters
 
 ## Help
 
-`Ho` tries to be self documenting, but if you’re really stuck then open an issue or try stack overflow
+`Ho` tries to be self documenting, but if you’re really stuck then open an issue
 
 ```sh
 ho <command> --help
@@ -86,7 +86,7 @@ let transform = new Transform({
 })
 ```
 
-This transform will then get appended to the transform pipeline and will end up outputted to a write stream pointed whether you specified with `-o`.
+This transform will then get appended to the transform pipeline and will end up outputted to a write stream pointed wherever you specified with `-o`.
 
 ### Custom transforms
 
