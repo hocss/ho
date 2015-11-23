@@ -8,6 +8,7 @@
   "scripts": {
     "lint": "eslint ./lib/**/*.js",
     "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "babel src --out-dir lib",
     "example": "./lib/ho compile -e example/main.less -o example/styles.css -c package.json --verbose"
   },
   "repository": {
@@ -38,16 +39,14 @@
   },
   "homepage": "https://github.com/hocss/ho",
   "dependencies": {
-    "babel-core": "^5.6.15",
-    "chalk": "^1.0.0",
-    "chokidar": "^1.0.3",
-    "glob": "^5.0.12",
+    "babel-core": "^6.2.1",
+    "chalk": "^1.1.1",
+    "chokidar": "^1.3.0",
+    "glob": "^6.0.1",
     "ho-compiler": "^1.0.0",
-    "yargs": "^3.14.0"
+    "yargs": "^3.30.0"
   },
   "devDependencies": {
-    "autoprefixer-transform": "^0.3.1",
-    "babel-eslint": "^3.1.19",
-    "eslint": "^0.24.0"
+    "autoprefixer-transform": "^0.3.1"
   }
 }
