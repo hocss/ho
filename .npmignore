@@ -1,4 +1,5 @@
 .gitignore
+.babelrc
 .eslintrc
 .travis.yml
 src
