@@ -1,17 +1,5 @@
-#!/usr/bin/env node
 
-// require('babel-core/register')({
-//     optional: [
-//         'es7.classProperties'
-//     ],
-//     loose: [
-//         'es6.modules',
-//         'es6.classes'
-//     ],
-//     ignore: false,
-//     only: new RegExp( __dirname )
-// })
-
+require( 'babel-polyfill' )
 
 var Compiler = require( './compiler' )
 var Watcher = require( './watcher' )

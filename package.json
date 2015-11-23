@@ -2,14 +2,15 @@
   "name": "ho",
   "version": "1.1.2",
   "description": "Ho ho ho the jolly css/less system",
+  "main": "lib",
   "bin": {
-    "ho": "lib/ho"
+    "ho": "bin/ho"
   },
   "scripts": {
-    "lint": "eslint ./lib/**/*.js",
+    "lint": "eslint ./src/**/*.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "babel src --out-dir lib",
-    "example": "./lib/ho compile -e example/main.less -o example/styles.css -c package.json --verbose"
+    "example": "./bin/ho compile -e example/main.less -o example/styles.css -c package.json --verbose"
   },
   "repository": {
     "type": "git",
@@ -39,7 +40,7 @@
   },
   "homepage": "https://github.com/hocss/ho",
   "dependencies": {
-    "babel-core": "^6.2.1",
+    "babel-polyfill": "^6.2.0",
     "chalk": "^1.1.1",
     "chokidar": "^1.3.0",
     "glob": "^6.0.1",
@@ -47,6 +48,9 @@
     "yargs": "^3.30.0"
   },
   "devDependencies": {
-    "autoprefixer-transform": "^0.3.1"
+    "autoprefixer-transform": "^0.3.1",
+    "babel-cli": "^6.2.0",
+    "babel-plugin-transform-class-properties": "^6.2.2",
+    "babel-preset-es2015-node4": "^2.0.1"
   }
 }

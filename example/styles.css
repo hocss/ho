@@ -1,6 +1,1 @@
-body {
-  margin: 0;
-  padding: 30px;
-  -webkit-transition: opacity 1s;
-          transition: opacity 1s;
-}
+body{margin:0;padding:30px;transition:opacity 1s}
